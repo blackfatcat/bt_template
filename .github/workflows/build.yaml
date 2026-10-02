@@ -48,6 +48,9 @@ jobs:
 
       - name: Checkout repository
         uses: actions/checkout@v4
+              
+      - name: Setup GCC
+        uses: egor-tensin/setup-gcc@v2
 
       - name: Install dependencies
         run: |
@@ -91,6 +94,6 @@ jobs:
           cmake --build build/wasm
           mkdir bin
           mkdir bin/wasm
-          emcc -g build-wasm/libbt_template.a -o bin/wasm/template.js
+          emcc -g build/wasm/libbt_template.a -o bin/wasm/template.js
 
       
