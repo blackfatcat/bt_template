@@ -13,6 +13,9 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - name: Setup cmake
+        uses: jwlawson/actions-setup-cmake@v2
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -35,6 +38,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Setup cmake
+        uses: jwlawson/actions-setup-cmake@v2
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -50,3 +55,32 @@ jobs:
 
       - name: Build (Linux)
         run: cmake --build build --config Release
+  
+  build-wasm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: emscripten-core/setup-emsdk@v15
+
+      - name: Setup cmake
+        uses: jwlawson/actions-setup-cmake@v2
+        
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y build-essential cmake
+
+      -name: build-wasm
+        run: emcmake cmake . -B build-wasm
+
+      # Change name of the input .a library to match the projects name (same as in comple-wasm.bat)
+      -name: compile-wasm
+        run: |
+          cmake --build build-wasm --target clean
+          cmake --build build-wasm
+          mkdir bin/wasm
+          emcc -g build-wasm/libbt_template.a -o bin/wasm/template.js
+
+      
