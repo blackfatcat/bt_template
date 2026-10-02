@@ -11,6 +11,8 @@ on:
 jobs:
   build-windows:
     runs-on: windows-latest
+    strategy:
+      fail-fast: false
 
     steps:
       - name: Setup cmake
@@ -36,6 +38,8 @@ jobs:
 
   build-linux:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
 
     steps:
       - name: Setup cmake
@@ -59,6 +63,8 @@ jobs:
   
   build-wasm:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
 
     steps:
       - name: Setup emscripten
