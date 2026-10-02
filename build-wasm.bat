@@ -35,6 +35,6 @@ if NOT "%PATH%"=="%PATH:mingw=%" (
     exit
 ) 
 
-emcmake cmake . -B build-wasm
+emcmake cmake . -B build/wasm
 
 pause
