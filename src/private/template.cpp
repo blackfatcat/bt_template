@@ -1,7 +1,7 @@
 #include "template.hpp"
 #include "core.hpp"
 
-namespace bt_template
+namespace bt::tmpl8
 {
     void example_fun()
     {
