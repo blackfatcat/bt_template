@@ -2,7 +2,7 @@
 Create_Module(
     NAME ${PROJECT_NAME}
     LANGUAGE CXX
-    DIRECTORY "${CMAKE_SOURCE_DIR}/src"
-    DEPENDENCIES bi_turbo.core
-    INCLUDE_DIRS "${bi_turbo.core_Include_Dir}"
+    DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/src"
+    DEPENDENCIES bt_core
+    INCLUDE_DIRS "${bt_core_Include_Dir}"
 )

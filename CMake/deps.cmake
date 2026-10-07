@@ -10,8 +10,8 @@ endif ()
 Include("${CMAKE_BINARY_DIR}/cmake/CPM.cmake")
 
 CPMAddPackage(
-    NAME bi_turbo
-    GITHUB_REPOSITORY "blackfatcat/bi_turbo"
-    GIT_TAG dev # change to any branch you'd like
+    NAME bt_core
+    GITHUB_REPOSITORY "blackfatcat/bt_core"
+    GIT_TAG main # change to any branch you'd like
     OPTIONS "BT_STANDALONE ON" # Custom CMake options
 )

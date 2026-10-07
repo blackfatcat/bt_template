@@ -1,3 +1,5 @@
+#pragma once
+
 #include <print>
 
 namespace bt::tmpl8

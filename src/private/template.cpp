@@ -5,7 +5,6 @@ namespace bt::tmpl8
 {
     void example_fun()
     {
-        test();
-        std::println("Example func: {}", 1);
+        bt::core::example_fun();
     }
 } // namespace bt_template

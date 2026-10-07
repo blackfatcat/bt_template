@@ -8,6 +8,13 @@ Function(create_example)
     if (NOT EXAMPLE_NAME OR NOT EXAMPLE_DIRECTORY)
         Message(FATAL_ERROR "create_example requires a valid NAME, MODULE and DIRECTORY.")
     endif ()
+    
+    message("-- Creating Example --")
+    message("Example name: ${EXAMPLE_NAME}")
+    message("Example include dirs: ${EXAMPLE_INCLUDE_DIRS}")
+    message("Example dir: ${EXAMPLE_DIRECTORY}")
+    message("Example deps: ${EXAMPLE_DEPENDENCIES}")
+    message("")
 
     File(GLOB_RECURSE EXAMPLE_FILES "${EXAMPLE_DIRECTORY}/*.cpp")
 
@@ -30,12 +37,13 @@ Function(create_module)
         Message(FATAL_ERROR "create_module requires a valid NAME, DIRECTORY and LANGUAGE.")
     endif ()
 
+    message("-- Creating Module --")
     message("Module name: ${MODULE_NAME}")
-    message("Include dirs: ${MODULE_INCLUDE_DIRS}")
+    message("Module include dirs: ${MODULE_INCLUDE_DIRS}")
     message("Module dir: ${MODULE_DIRECTORY}")
     message("Module deps: ${MODULE_DEPENDENCIES}")
-
-
+    message("")
+    
     File(GLOB_RECURSE MODULE_FILES "${MODULE_DIRECTORY}/public/*.hpp" "${MODULE_DIRECTORY}/private/*.cpp" "${MODULE_DIRECTORY}/*.mm")
     Add_Library(${MODULE_NAME} STATIC ${MODULE_FILES})
 
